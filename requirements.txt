@@ -14,3 +14,6 @@ plotly
 nltk
 PySastrawi
 gensim
+#download nltk
+import nltk
+nltk.download('all')
