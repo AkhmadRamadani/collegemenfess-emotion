@@ -47,7 +47,12 @@ from sklearn.feature_extraction.text import TfidfTransformer
 # import LogisticRegression
 from sklearn.linear_model import LogisticRegression
 
-# %%
+# download nltk data 
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('punkt')
+
+
 # load negatif and positif words from assets/negatif.txt and assets/positif.txt
 # and store it in negatif and positif list
 negatif = []
