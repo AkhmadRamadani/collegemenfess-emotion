@@ -67,12 +67,26 @@ with open('assets/positif.txt', 'r') as f:
         positif.append(line.strip())
         
 
-# %%
+# get synonyms of negatif and positif words from assets/dict.json
+# and add it to negatif and positif list
+import json
+
+with open('assets/dict.json', 'r') as f:
+    dict = json.load(f)
+
+for key, value in dict.items():
+    if key in negatif:
+        for v in value:
+            negatif.append(v)
+    elif key in positif:
+        for v in value:
+            positif.append(v)
+
 # remove duplicate words in negatif and positif list
 negatif = list(set(negatif))
 positif = list(set(positif))
 
-# %%
+
 # import slang word from assets/slang.json
 slang = pd.read_json('assets/slang.json', typ='series')
 slang = slang.to_dict()
