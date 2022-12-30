@@ -15,7 +15,8 @@ def predict():
     tweet = request.form['tweet']
     prediction = predictTweet(tweet)
     # return the result in json format
-    return jsonify({'prediction': prediction})
+    predict_using_svm = predict_label_svm(tweet)
+    return jsonify({'prediction': prediction, 'predict_using_svm': predict_using_svm})
 
 @app.route('/predict_svm', methods=['POST'])
 def predict_svm():
