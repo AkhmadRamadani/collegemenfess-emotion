@@ -181,6 +181,7 @@ def labelTweet(score):
 
 # predict the tweet
 def predictTweet(tweet):
+    real_tweet = tweet
     tweet = cleanTxt(tweet)
     tweet = slang_to_formal(tweet)
     tweet = acronym_to_formal(tweet)
@@ -191,6 +192,7 @@ def predictTweet(tweet):
     score = classify(unigram)
     label = labelTweet(score)
     result = {
+        'real_tweet': real_tweet,
         'tweet_baku': tweet_baku,
         'processed_tweet': tweet,
         'score': score,

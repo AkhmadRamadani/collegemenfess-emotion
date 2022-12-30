@@ -2,9 +2,9 @@ from flask import Flask, request, render_template, jsonify
 import pickle
 import numpy as np
 from script.func import predictTweet
+from kmeans import predict_label, predict_label_svm
 
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
 def hello_world():
@@ -16,6 +16,14 @@ def predict():
     prediction = predictTweet(tweet)
     # return the result in json format
     return jsonify({'prediction': prediction})
+
+@app.route('/predict_svm', methods=['POST'])
+def predict_svm():
+    tweet = request.form['tweet']
+    prediction = predict_label_svm(tweet)
+    # return the result in json format
+    return jsonify({'prediction': prediction})
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
