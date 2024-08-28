@@ -36,8 +36,8 @@ This project is a Flask web application that predicts the emotions or sentiment 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/college-menfess-tweet-emotion.git
-    cd college-menfess-tweet-emotion
+    git clone https://github.com/akhmadramadani/collegemenfess-emotion.git
+    cd collegemenfess-emotion
     ```
 
 2. Install the required Python packages:
